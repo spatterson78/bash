@@ -1,2 +1,2 @@
-# bash
-Collection of bash scripts
+# Collection of bash scripts
+
