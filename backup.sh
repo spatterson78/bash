@@ -65,7 +65,6 @@ echo
 
 if [ $YN = "y" ]; then
 	echo "Proceeding with backup of /home/$USERNAME"
-	# add more commands here
 elif [ $YN = "n" ]; then
 	echo "Exiting"
 	exit
@@ -74,7 +73,6 @@ else
 	read YN
 	if [ $YN = "y" ]; then
 		echo "Proceeding with backup of /home/$USERNAME"
-		# add more commands here
 	elif [ $YN = "n" ]; then
 		echo "Exiting"
 		exit
