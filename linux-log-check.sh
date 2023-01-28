@@ -1,13 +1,12 @@
 #!/bin/bash
 #
 ##########################################################
-# Createe By: Shawn
-#
-#
-#
-#
-#
-########################################################
+# Created By: Shawn Patterson
+# Created On: 01/27/2023
+# Filename: linux-log-check.sh
+# Usage: ./linux-log-check.sh
+# Description: Script to check for log entries
+##########################################################
 
 # Functions
 
