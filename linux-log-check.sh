@@ -19,7 +19,7 @@ journalctl-n10 () {
 	journalctl -n 10
 	echo
 	echo "--------------------------------------------------------"
-	echo "Showing 10 most recent log entries comnpleted."
+	echo "Showing 10 most recent log entries completed."
 	echo "--------------------------------------------------------"
 	echo
 	echo "Press return to continue."
@@ -43,6 +43,7 @@ journalctl-crit () {
         echo "Showing critical log entries comnpleted."
         echo "--------------------------------------------------------"
         echo
+	echo "Press return to continue."
 	read RETURN
         case $RETURN in
                 *)
@@ -60,9 +61,10 @@ journalctl-crit10 () {
         journalctl -p crit -n 10
         echo
         echo "--------------------------------------------------------"
-        echo "Showing 10 most recent critical log entries comnpleted."
+        echo "Showing 10 most recent critical log entries completed."
         echo "--------------------------------------------------------"
         echo
+	echo "Press return to continue."
         read RETURN
         case $RETURN in
                 *)
@@ -87,6 +89,7 @@ such as httpd|mysqld: "
         echo "Showing $SERVICE log entries comnpleted."
         echo "--------------------------------------------------------"
         echo
+	echo "Press return to continue."
 	read RETURN
         case $RETURN in
                 *)
@@ -97,7 +100,8 @@ such as httpd|mysqld: "
 
 journalctl-service-crit () {
         echo
-        echo -n "Please enter the systemd service you wish to check: "
+        echo -n "Please enter the systemd service you wish to check
+such as httpd|mysqld: "
         read SERVICE
         echo
         echo "--------------------------------------------------------"
@@ -110,6 +114,7 @@ journalctl-service-crit () {
         echo "Showing critical $SERVICE log entries comnpleted."
 	echo "--------------------------------------------------------"
         echo
+	echo "Press return to continue."
 	read RETURN
         case $RETURN in
                 *)
@@ -118,7 +123,9 @@ journalctl-service-crit () {
         esac
 }
 
-# While loop to keep menu opne
+# Clear screen
+clear
+# While loop to keep menu open
 while true
 do
 # Menu Display
