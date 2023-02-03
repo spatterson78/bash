@@ -22,12 +22,19 @@ journalctl-n10 () {
 	echo "Showing 10 most recent log entries comnpleted."
 	echo "--------------------------------------------------------"
 	echo
+	echo "Press return to continue."
+	read RETURN
+	case $RETURN in
+		*)
+			clear
+			;;
+	esac
 }
 
 journalctl-crit () {
 	echo
         echo "--------------------------------------------------------"
-        echo "Showing critical log entries..."
+        echo "Showing all critical log entries..."
         echo "--------------------------------------------------------"
         echo
         journalctl -p crit
@@ -36,11 +43,38 @@ journalctl-crit () {
         echo "Showing critical log entries comnpleted."
         echo "--------------------------------------------------------"
         echo
+	read RETURN
+        case $RETURN in
+                *)
+                        clear
+                        ;;
+        esac
+}
+
+journalctl-crit10 () {
+	echo
+	echo "--------------------------------------------------------"
+        echo "Showing 10 most recent critical log entries..."
+        echo "--------------------------------------------------------"
+        echo
+        journalctl -p crit -n 10
+        echo
+        echo "--------------------------------------------------------"
+        echo "Showing 10 most recent critical log entries comnpleted."
+        echo "--------------------------------------------------------"
+        echo
+        read RETURN
+        case $RETURN in
+                *)
+                        clear
+                        ;;
+        esac
 }
 
 journalctl-service () {
         echo
-	echo -n "Please enter the systemd service you wish to check: "
+	echo -n "Please enter the systemd service you wish to check
+such as httpd|mysqld: "
 	read SERVICE
 	echo
         echo "--------------------------------------------------------"
@@ -53,6 +87,12 @@ journalctl-service () {
         echo "Showing $SERVICE log entries comnpleted."
         echo "--------------------------------------------------------"
         echo
+	read RETURN
+        case $RETURN in
+                *)
+                        clear
+                        ;;
+        esac
 }
 
 journalctl-service-crit () {
@@ -70,6 +110,12 @@ journalctl-service-crit () {
         echo "Showing critical $SERVICE log entries comnpleted."
 	echo "--------------------------------------------------------"
         echo
+	read RETURN
+        case $RETURN in
+                *)
+                        clear
+                        ;;
+        esac
 }
 
 # While loop to keep menu opne
@@ -82,9 +128,10 @@ do
 	echo "--------------------------------------------------------"
 	echo
 	echo "1. Display 10 most recent log entries"
-	echo "2. Display critical log entries"
-	echo "3. Display log entries for a systemd service"
-	echo "4. Display crititcal log entries for a systemd service"
+	echo "2. Display all critical log entries"
+	echo "3. Display 10 most recent critical log entries"
+	echo "4. Display all log entries for a systemd service"
+	echo "5. Display all crititcal log entries for a systemd service"
 	echo "x. Exit Linux System Logs Menu"
 	echo 
 	echo "--------------------------------------------------------"
@@ -105,10 +152,14 @@ do
 			journalctl-crit
 			;;
 		3)
+                        clear
+                        journalctl-crit10
+                        ;;
+		4)
 			clear
 			journalctl-service
 			;;
-		4)
+		5)
 			clear
 			journalctl-service-crit
 			;;
